@@ -1,0 +1,13 @@
+{
+  "overlay": { "supported": false },
+  "cloudStorage": {
+    "enabled": true,
+    "locations": [
+      {
+        "name": "saves",
+        "location": "<?XDG_CONFIG_HOME?>/unity3d/Team Cherry/Hollow Knight",
+        "wildcard": "*.dat"
+      }
+    ]
+  }
+}
