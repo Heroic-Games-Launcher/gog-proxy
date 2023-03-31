@@ -2,7 +2,6 @@
 extern crate rocket;
 use rocket::{http::Status, serde::json};
 use structs::{GOGConfig, PlatformConfig};
-use tokio::fs;
 
 mod structs;
 mod utils;
@@ -22,13 +21,13 @@ async fn get_config(id: String) -> (Status, Option<json::Json<GOGConfig>>) {
 
     let mut gog_config = gog_config.unwrap();
 
-    let data_file = fs::canonicalize(format!("./games_data/{id}.json")).await; // This will return error if path doesn't exist
-    if let Ok(data_file) = data_file {
-        let raw_data = fs::read_to_string(&data_file).await.unwrap();
-        if let Ok(config) = serde_json::from_str::<PlatformConfig>(&raw_data) {
-            gog_config.content.linux = Some(config);
-        };
+    match utils::read_linux_config(id).await {
+        Some(linux_config) => {
+            gog_config.content.linux = Some(linux_config);
+        }
+        None => gog_config.content.linux = Some(PlatformConfig::default()),
     }
+
     (Status::Ok, Some(json::Json(gog_config)))
 }
 

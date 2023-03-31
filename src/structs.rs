@@ -30,6 +30,18 @@ pub struct PlatformConfig {
     pub cloud_storage: CloudStorage,
 }
 
+impl PlatformConfig {
+    pub fn default() -> PlatformConfig {
+        PlatformConfig {
+            overlay: Overlay { supported: false },
+            cloud_storage: CloudStorage {
+                enabled: false,
+                locations: Vec::new(),
+            },
+        }
+    }
+}
+
 #[derive(Serialize, Deserialize, Debug)]
 pub struct GOGConfigContent {
     #[serde(rename = "MacOS")]
