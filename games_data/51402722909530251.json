@@ -1,0 +1,20 @@
+{
+  "overlay": {
+    "supported": false
+  },
+  "cloudStorage": {
+    "enabled": false,
+    "locations": [
+      {
+        "name": "saves",
+        "location": "<?APPLICATION_DATA_ROAMING?>/RenPy/ShiningSongStarnova-SaveData",
+        "wildcard": null
+      },
+      {
+        "name": "saves2",
+        "location": "<?INSTALL?>/game/saves",
+        "wildcard": null
+      }
+    ]
+  }
+}

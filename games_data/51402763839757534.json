@@ -1,0 +1,20 @@
+{
+  "overlay": {
+    "supported": false
+  },
+  "cloudStorage": {
+    "enabled": false,
+    "locations": [
+      {
+        "name": "saves1",
+        "location": "<?INSTALL?>/PlayerData/Profiles",
+        "wildcard": null
+      },
+      {
+        "name": "saves2",
+        "location": "<?INSTALL?>/PlayerData/Save",
+        "wildcard": null
+      }
+    ]
+  }
+}

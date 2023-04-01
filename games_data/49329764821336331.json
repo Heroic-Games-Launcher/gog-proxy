@@ -1,0 +1,15 @@
+{
+  "overlay": {
+    "supported": false
+  },
+  "cloudStorage": {
+    "enabled": false,
+    "locations": [
+      {
+        "name": "saves_win",
+        "location": "<?INSTALL?>\\save",
+        "wildcard": null
+      }
+    ]
+  }
+}

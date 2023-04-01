@@ -1,0 +1,15 @@
+{
+  "overlay": {
+    "supported": false
+  },
+  "cloudStorage": {
+    "enabled": false,
+    "locations": [
+      {
+        "name": "saves",
+        "location": "<?APPLICATION_DATA_LOCAL_LOW?>/Weappy/This Is The Police 2",
+        "wildcard": null
+      }
+    ]
+  }
+}

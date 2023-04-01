@@ -1,0 +1,15 @@
+{
+  "overlay": {
+    "supported": false
+  },
+  "cloudStorage": {
+    "enabled": false,
+    "locations": [
+      {
+        "name": "saves",
+        "location": "<?APPLICATION_DATA_LOCAL_LOW?>/Circle Empires/Circle Empires/Saves",
+        "wildcard": null
+      }
+    ]
+  }
+}

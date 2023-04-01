@@ -1,0 +1,15 @@
+{
+  "overlay": {
+    "supported": false
+  },
+  "cloudStorage": {
+    "enabled": false,
+    "locations": [
+      {
+        "name": "save",
+        "location": "<?DOCUMENTS?>/My Games/SteamWorld Quest",
+        "wildcard": null
+      }
+    ]
+  }
+}

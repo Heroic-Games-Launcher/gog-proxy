@@ -1,0 +1,25 @@
+{
+  "overlay": {
+    "supported": false
+  },
+  "cloudStorage": {
+    "enabled": false,
+    "locations": [
+      {
+        "name": "saves1",
+        "location": "<?INSTALL?>/hwin_1/saves",
+        "wildcard": null
+      },
+      {
+        "name": "saves2",
+        "location": "<?INSTALL?>/hwin_2/saves",
+        "wildcard": null
+      },
+      {
+        "name": "saves3",
+        "location": "<?INSTALL?>/hwin_3/saves",
+        "wildcard": null
+      }
+    ]
+  }
+}

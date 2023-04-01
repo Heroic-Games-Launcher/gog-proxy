@@ -1,0 +1,15 @@
+{
+  "overlay": {
+    "supported": false
+  },
+  "cloudStorage": {
+    "enabled": false,
+    "locations": [
+      {
+        "name": "saves",
+        "location": "<?APPLICATION_DATA_ROAMING?>\\\\RenPy\\\\Sunrider Liberation Day-1433059539",
+        "wildcard": null
+      }
+    ]
+  }
+}

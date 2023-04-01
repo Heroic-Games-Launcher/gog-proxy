@@ -1,0 +1,20 @@
+{
+  "overlay": {
+    "supported": false
+  },
+  "cloudStorage": {
+    "enabled": false,
+    "locations": [
+      {
+        "name": "saves",
+        "location": "<?APPLICATION_DATA_ROAMING?>/RenPy/Highway Blossoms Remastered-15500000",
+        "wildcard": null
+      },
+      {
+        "name": "saves1",
+        "location": "<?INSTALL?>/game/saves",
+        "wildcard": null
+      }
+    ]
+  }
+}

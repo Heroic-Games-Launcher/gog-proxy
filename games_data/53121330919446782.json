@@ -1,0 +1,15 @@
+{
+  "overlay": {
+    "supported": false
+  },
+  "cloudStorage": {
+    "enabled": false,
+    "locations": [
+      {
+        "name": "saves",
+        "location": "<?DOCUMENTS?>/Streets of Rage 4 Save and Config",
+        "wildcard": null
+      }
+    ]
+  }
+}

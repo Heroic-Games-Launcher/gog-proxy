@@ -1,0 +1,15 @@
+{
+  "overlay": {
+    "supported": false
+  },
+  "cloudStorage": {
+    "enabled": false,
+    "locations": [
+      {
+        "name": "saves",
+        "location": "<?APPLICATION_DATA_LOCAL?>/BASS2/Saved/SaveGames",
+        "wildcard": null
+      }
+    ]
+  }
+}

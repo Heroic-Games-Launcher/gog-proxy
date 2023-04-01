@@ -1,0 +1,15 @@
+{
+  "overlay": {
+    "supported": false
+  },
+  "cloudStorage": {
+    "enabled": false,
+    "locations": [
+      {
+        "name": "saves",
+        "location": "<?APPLICATION_DATA_LOCAL?>\\\\GOG.com\\\\Galaxy\\\\Applications\\\\50593784065412277\\\\Storage\\\\Shared\\\\Files",
+        "wildcard": null
+      }
+    ]
+  }
+}

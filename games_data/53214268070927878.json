@@ -1,0 +1,20 @@
+{
+  "overlay": {
+    "supported": false
+  },
+  "cloudStorage": {
+    "enabled": false,
+    "locations": [
+      {
+        "name": "saves1",
+        "location": "<?APPLICATION_DATA_ROAMING?>/Godot/app_userdata/Resolutiion/dreams",
+        "wildcard": null
+      },
+      {
+        "name": "saves2",
+        "location": "<?APPLICATION_DATA_ROAMING?>/Godot/app_userdata/Resolutiion/screens",
+        "wildcard": null
+      }
+    ]
+  }
+}

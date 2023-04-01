@@ -1,0 +1,15 @@
+{
+  "overlay": {
+    "supported": false
+  },
+  "cloudStorage": {
+    "enabled": false,
+    "locations": [
+      {
+        "name": "saves",
+        "location": "<?INSTALL?>/HeartoftheWoods-2.0.3-pc/game/saves",
+        "wildcard": null
+      }
+    ]
+  }
+}

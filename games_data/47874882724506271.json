@@ -1,0 +1,15 @@
+{
+  "overlay": {
+    "supported": false
+  },
+  "cloudStorage": {
+    "enabled": true,
+    "locations": [
+      {
+        "name": "saves",
+        "location": "<?XDG_DATA_HOME?>/cdprojektred/witcher2/GameDocuments/Witcher 2/gamesaves",
+        "wildcard": null
+      }
+    ]
+  }
+}

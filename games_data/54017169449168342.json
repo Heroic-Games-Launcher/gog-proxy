@@ -1,0 +1,20 @@
+{
+  "overlay": {
+    "supported": false
+  },
+  "cloudStorage": {
+    "enabled": false,
+    "locations": [
+      {
+        "name": "saves",
+        "location": "<?APPLICATION_DATA_ROAMING?>/Yacht Club Games/CyberShadow/save",
+        "wildcard": null
+      },
+      {
+        "name": "saves2",
+        "location": "<?INSTALL?>/save",
+        "wildcard": null
+      }
+    ]
+  }
+}

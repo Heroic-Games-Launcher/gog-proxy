@@ -1,0 +1,20 @@
+{
+  "overlay": {
+    "supported": false
+  },
+  "cloudStorage": {
+    "enabled": false,
+    "locations": [
+      {
+        "name": "saves",
+        "location": "<?INSTALL?>/Saves",
+        "wildcard": null
+      },
+      {
+        "name": "settings",
+        "location": "<?INSTALL?>/Settings",
+        "wildcard": null
+      }
+    ]
+  }
+}

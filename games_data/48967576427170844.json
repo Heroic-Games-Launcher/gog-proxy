@@ -1,0 +1,15 @@
+{
+  "overlay": {
+    "supported": false
+  },
+  "cloudStorage": {
+    "enabled": false,
+    "locations": [
+      {
+        "name": "saves",
+        "location": "<?APPLICATION_DATA_LOCAL_LOW?>\\\\Krillbite Studio\\\\Among the Sleep",
+        "wildcard": null
+      }
+    ]
+  }
+}

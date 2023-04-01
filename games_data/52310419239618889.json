@@ -1,0 +1,20 @@
+{
+  "overlay": {
+    "supported": false
+  },
+  "cloudStorage": {
+    "enabled": false,
+    "locations": [
+      {
+        "name": "saves1",
+        "location": "<?APPLICATION_DATA_ROAMING?>/RenPy/The Expression Amrilato",
+        "wildcard": null
+      },
+      {
+        "name": "saves2",
+        "location": "<?INSTALL?>/TheExpressionAmrilato-1.0-market/game/saves",
+        "wildcard": null
+      }
+    ]
+  }
+}

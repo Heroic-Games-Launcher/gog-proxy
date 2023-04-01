@@ -1,0 +1,15 @@
+{
+  "overlay": {
+    "supported": false
+  },
+  "cloudStorage": {
+    "enabled": false,
+    "locations": [
+      {
+        "name": "saves",
+        "location": "<?DOCUMENTS?>/my games/Möbius Front '83/NonSteamUser",
+        "wildcard": null
+      }
+    ]
+  }
+}

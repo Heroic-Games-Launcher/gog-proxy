@@ -1,0 +1,20 @@
+{
+  "overlay": {
+    "supported": false
+  },
+  "cloudStorage": {
+    "enabled": false,
+    "locations": [
+      {
+        "name": "saves",
+        "location": "<?DOCUMENTS?>/Universe Sandbox/Simulations",
+        "wildcard": null
+      },
+      {
+        "name": "saves2",
+        "location": "<?DOCUMENTS?>/Universe Sandbox/Objects",
+        "wildcard": null
+      }
+    ]
+  }
+}

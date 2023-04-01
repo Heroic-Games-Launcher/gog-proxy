@@ -1,0 +1,25 @@
+{
+  "overlay": {
+    "supported": false
+  },
+  "cloudStorage": {
+    "enabled": false,
+    "locations": [
+      {
+        "name": "saves",
+        "location": "<?INSTALL?>/save",
+        "wildcard": null
+      },
+      {
+        "name": "saves2",
+        "location": "<?APPLICATION_DATA_ROAMING?>/MangaGamer/Kindred Spirits Full Chorus",
+        "wildcard": null
+      },
+      {
+        "name": "saves3",
+        "location": "<?INSTALL?>/game/saves",
+        "wildcard": null
+      }
+    ]
+  }
+}

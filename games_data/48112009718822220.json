@@ -1,0 +1,15 @@
+{
+  "overlay": {
+    "supported": false
+  },
+  "cloudStorage": {
+    "enabled": false,
+    "locations": [
+      {
+        "name": "saves",
+        "location": "<?APPLICATION_DATA_ROAMING?>/11bitstudios/This War Of Mine/iPhoneDefUser",
+        "wildcard": null
+      }
+    ]
+  }
+}

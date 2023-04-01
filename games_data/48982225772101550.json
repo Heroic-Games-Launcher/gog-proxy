@@ -1,0 +1,15 @@
+{
+  "overlay": {
+    "supported": false
+  },
+  "cloudStorage": {
+    "enabled": false,
+    "locations": [
+      {
+        "name": "saves",
+        "location": "<?DOCUMENTS?>\\Baldur's Gate II - Enhanced Edition\\save",
+        "wildcard": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "overlay": {
+    "supported": false
+  },
+  "cloudStorage": {
+    "enabled": true,
+    "locations": [
+      {
+        "name": "saves",
+        "location": "<?XDG_CONFIG_HOME?>/StardewValley",
+        "wildcard": null
+      }
+    ]
+  }
+}
