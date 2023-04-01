@@ -18,7 +18,7 @@ GET /api/config/client_id
 
 ## Contributing
 
-The `games_data/` directory contains `ClientId.json` files for each game. Contributions to that directory are welcome. All json files are formatted using Prettier.
+The `games_data/` directory contains automatically generated `ClientId.json` files for each game. That are disabled by default. Contributions to that directory are welcome. All json files are formatted using Prettier.
 
 ### Obtaining the relevant game data
 
@@ -30,7 +30,7 @@ Let's say, you want to add a new linux native game to suport cloud saves.
 4. Copy client id
 5. Make a [request to the API](#api) with it
 6. Find corresponding paths on Linux
-7. Write config file
+7. Write/Update config file
 
 ### Sample config
 
@@ -43,7 +43,7 @@ Let's say, you want to add a new linux native game to suport cloud saves.
       {
         "name": "saves",
         "location": "<?XDG_CONFIG_HOME?>/unity3d/Team Cherry/Hollow Knight",
-        "wildcard": "*.dat" // This can be null
+        "wildcard": "*.dat"
       }
     ]
   }
@@ -58,7 +58,7 @@ Let's say, you want to add a new linux native game to suport cloud saves.
 
 - location - place where files are stored - this can use env vars like `$HOME`, values that have fallbacks (like `$XDG_CONFIG_HOME` falls back to `$HOME/.config`) should be closed in `<?SOME_VAR?>`
 
-- wildcard - value can be set to `null`. Due to nature of some games on Linux that's required to not push unrelated junk to the cloud (that's usually a case for Unity games)
+- wildcard - value can be set to `null`. Due to nature of some games on Linux that's required to not push unrelated junk to the cloud (that's usually a case for Unity games on Linux)
 
 **IMPORTANT NOTE**  
 Some games can have enabled `cloudStorage` but empty locations array. This is caused by the fact that such games use `__default` location which is only available on Windows and Mac, since it's handled by Galaxy SDK (which doesn't exist on Linux btw). [SDK Documentation related to this](https://docs.gog.com/sdk-storage/#cloud-saves)
@@ -77,4 +77,16 @@ APPLICATION_DATA_LOCAL_LOW
 APPLICATION_DATA_ROAMING
 APPLICATION_SUPPORT
 DOCUMENTS
+```
+
+## Running the server
+
+```
+cargo run --bin gog_proxy
+```
+
+## Generate json files
+
+```
+cargo run --bin generator
 ```

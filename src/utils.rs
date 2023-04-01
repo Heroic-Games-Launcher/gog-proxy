@@ -1,7 +1,8 @@
-use crate::structs::{GOGConfig, PlatformConfig};
+use super::structs::{GOGConfig, PlatformConfig};
+use rocket::async_test;
 use tokio::fs;
 
-pub async fn get_gog_remote_config(id: String) -> Option<GOGConfig> {
+pub async fn get_gog_remote_config(id: &String) -> Option<GOGConfig> {
     let response = reqwest::get(format!("https://remote-config.gog.com/components/galaxy_client/clients/{id}?component_version=2.0.50")).await;
 
     match response {
@@ -34,18 +35,9 @@ async fn check_configs() {
         .await
         .expect("Failed to read games data config");
 
-    loop {
-        let file = read_dir.next_entry().await;
-        if file.is_err() {
-            break;
-        }
-
-        if let Some(file) = file.unwrap() {
-            let path = file.path();
-            let raw_data = fs::read_to_string(&path).await.unwrap();
-            serde_json::from_str::<PlatformConfig>(&raw_data).expect("Failed to parse json file");
-        } else {
-            break;
-        }
+    while let Ok(Some(file)) = read_dir.next_entry().await {
+        let path = file.path();
+        let raw_data = fs::read_to_string(&path).await.unwrap();
+        serde_json::from_str::<PlatformConfig>(&raw_data).expect("Failed to parse json file");
     }
 }

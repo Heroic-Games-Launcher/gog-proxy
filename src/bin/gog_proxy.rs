@@ -1,10 +1,9 @@
 #[macro_use]
 extern crate rocket;
-use rocket::{http::Status, serde::json};
-use structs::{GOGConfig, PlatformConfig};
 
-mod structs;
-mod utils;
+use gog_proxy::structs::{GOGConfig, PlatformConfig};
+use gog_proxy::utils;
+use rocket::{http::Status, serde::json};
 
 #[get("/")]
 fn index() -> &'static str {
@@ -13,7 +12,7 @@ fn index() -> &'static str {
 
 #[get("/config/<id>")]
 async fn get_config(id: String) -> (Status, Option<json::Json<GOGConfig>>) {
-    let gog_config = utils::get_gog_remote_config(id.clone()).await;
+    let gog_config = utils::get_gog_remote_config(&id).await;
 
     if gog_config.is_none() {
         return (Status::NotFound, None);

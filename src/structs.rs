@@ -1,18 +1,18 @@
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct SaveLocation {
     pub name: String,
     pub location: String,
     pub wildcard: Option<String>,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Overlay {
     pub supported: bool,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct CloudStorage {
     pub enabled: bool,
     pub locations: Vec<SaveLocation>,
@@ -23,15 +23,15 @@ pub struct QuotaConfig {
     pub quota: u32,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct PlatformConfig {
     pub overlay: Overlay,
     #[serde(rename = "cloudStorage")]
     pub cloud_storage: CloudStorage,
 }
 
-impl PlatformConfig {
-    pub fn default() -> PlatformConfig {
+impl Default for PlatformConfig {
+    fn default() -> PlatformConfig {
         PlatformConfig {
             overlay: Overlay { supported: false },
             cloud_storage: CloudStorage {
