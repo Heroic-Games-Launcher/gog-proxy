@@ -5,6 +5,7 @@ use serde::Deserialize;
 use sqlite::State;
 use std::io::prelude::*;
 use std::{cmp::min, env};
+use tokio::task::JoinSet;
 use tokio::{fs, io::AsyncWriteExt};
 
 const GET_LINUX_NATIVE_GAMES_QUERY: &str =
@@ -173,39 +174,40 @@ async fn main() {
     }
 
     let pb = ProgressBar::new(native_products.len() as u64);
-
-    let futures = native_products
-        .iter()
-        .map(|product| tokio::spawn(obtain_client_id(client.clone(), product.to_string())));
-
     let default_platform = PlatformConfig::default();
+    let mut future_set = JoinSet::new();
 
-    for future in futures {
-        let joined = future.await.expect("Failed to join future");
-        pb.inc(1);
-        if let Some(id) = joined {
-            if !defined_clients.contains(&id) {
-                let remote_config = utils::get_gog_remote_config(&id).await;
-                let mut f_handle = fs::File::create(format!("./games_data/{id}.json"))
-                    .await
-                    .expect("Failed to create a file");
+    for chunk in native_products.chunks(10) {
+        for product in chunk {
+            future_set.spawn(obtain_client_id(client.clone(), product.to_string()));
+        }
 
-                let mut platform_cfg = default_platform.clone();
+        while let Some(future) = future_set.join_next().await {
+            pb.inc(1);
+            if let Ok(Some(id)) = future {
+                if !defined_clients.contains(&id) {
+                    let remote_config = utils::get_gog_remote_config(&id).await;
+                    let mut f_handle = fs::File::create(format!("./games_data/{id}.json"))
+                        .await
+                        .expect("Failed to create a file");
 
-                if let Some(windows_config) = remote_config {
-                    platform_cfg.cloud_storage.locations =
-                        windows_config.content.windows.cloud_storage.locations;
+                    let mut platform_cfg = default_platform.clone();
+
+                    if let Some(windows_config) = remote_config {
+                        platform_cfg.cloud_storage.locations =
+                            windows_config.content.windows.cloud_storage.locations;
+                    }
+
+                    f_handle
+                        .write_all(
+                            serde_json::to_string_pretty(&platform_cfg)
+                                .unwrap()
+                                .as_bytes(),
+                        )
+                        .await
+                        .expect("Failed to write default config");
+                    f_handle.shutdown().await.unwrap();
                 }
-
-                f_handle
-                    .write_all(
-                        serde_json::to_string_pretty(&platform_cfg)
-                            .unwrap()
-                            .as_bytes(),
-                    )
-                    .await
-                    .expect("Failed to write default config");
-                f_handle.shutdown().await.unwrap();
             }
         }
     }
